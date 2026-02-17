@@ -1,5 +1,5 @@
 {
-  "name": "Birthday Wish Genie",
-  "description": "A sophisticated AI-powered birthday greeting generator that crafts highly personalized wishes based on name, age, hobbies, and more using Gemini 3 Flash.",
+  "name": "Cat-Powered Birthday Wish Genie",
+  "description": "A sophisticated AI-powered birthday greeting generator that crafts highly personalized wishes using Gemini 3 Flash.",
   "requestFramePermissions": []
 }

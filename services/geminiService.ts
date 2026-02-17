@@ -6,25 +6,25 @@ export const generateBirthdayGreeting = async (data: BirthdayData): Promise<stri
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
   
   const prompt = `
-    Напиши теплое, креативное и очень персонализированное поздравление с днем рождения на русском языке.
-    Данные именинника:
-    - Имя: ${data.name}
-    ${data.age ? `- Возраст: ${data.age}` : ''}
-    ${data.zodiac ? `- Знак зодиака: ${data.zodiac}` : ''}
-    ${data.gender ? `- Пол: ${data.gender}` : ''}
-    ${data.industry ? `- Индустрия работы: ${data.industry}` : ''}
-    ${data.hobbies ? `- Хобби/Увлечения: ${data.hobbies}` : ''}
-    ${data.religion ? `- Религия: ${data.religion}` : ''}
-    ${data.city ? `- Город: ${data.city}` : ''}
-    ${data.country ? `- Страна: ${data.country}` : ''}
-    ${data.familyStatus ? `- Семейный статус: ${data.familyStatus}` : ''}
+    Write a warm, creative, and highly personalized birthday greeting in English.
+    Birthday Person Details:
+    - Name: ${data.name}
+    ${data.age ? `- Age: ${data.age}` : ''}
+    ${data.zodiac ? `- Zodiac Sign: ${data.zodiac}` : ''}
+    ${data.gender ? `- Gender: ${data.gender}` : ''}
+    ${data.industry ? `- Industry/Work: ${data.industry}` : ''}
+    ${data.hobbies ? `- Hobbies/Interests: ${data.hobbies}` : ''}
+    ${data.religion ? `- Religion: ${data.religion}` : ''}
+    ${data.city ? `- City: ${data.city}` : ''}
+    ${data.country ? `- Country: ${data.country}` : ''}
+    ${data.familyStatus ? `- Family Status: ${data.familyStatus}` : ''}
 
-    Инструкции:
-    1. Поздравление должно быть искренним.
-    2. Учти его хобби и индустрию работы для метафор.
-    3. Тон должен соответствовать указанному возрасту и полу.
-    4. Если указана религия или страна, можно добавить уместные культурные нотки.
-    5. Сделай текст структурированным и красивым.
+    Instructions:
+    1. The greeting should be sincere.
+    2. Incorporate their hobbies and industry for creative metaphors.
+    3. The tone should match the provided age and gender.
+    4. If religion or country is provided, add appropriate cultural nuances if relevant.
+    5. Make the text structured and beautiful.
   `;
 
   try {
@@ -37,9 +37,9 @@ export const generateBirthdayGreeting = async (data: BirthdayData): Promise<stri
       }
     });
 
-    return response.text || "Извините, не удалось сгенерировать поздравление.";
+    return response.text || "Sorry, I couldn't generate a greeting.";
   } catch (error) {
     console.error("Error calling Gemini API:", error);
-    throw new Error("Ошибка при обращении к AI. Попробуйте позже.");
+    throw new Error("Error communicating with AI. Please try again later.");
   }
 };

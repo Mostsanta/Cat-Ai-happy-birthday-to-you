@@ -27,7 +27,7 @@ const Input: React.FC<InputProps> = ({ label, name, value, onChange, type = 'tex
           onChange={onChange}
           className="px-4 py-2 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all bg-white"
         >
-          <option value="">Выбрать...</option>
+          <option value="">Select...</option>
           {options.map((opt, idx) => {
             const val = typeof opt === 'string' ? opt : opt.value;
             const lbl = typeof opt === 'string' ? opt : opt.label;

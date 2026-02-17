@@ -48,14 +48,14 @@ const App: React.FC = () => {
       setResult(greeting);
       setStatus(FormStatus.SUCCESS);
     } catch (err: any) {
-      setError(err.message || "Что-то пошло не так");
+      setError(err.message || "Something went wrong");
       setStatus(FormStatus.ERROR);
     }
   };
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(result);
-    alert('Поздравление скопировано! 🐾');
+    alert('Greeting copied! 🐾');
   };
 
   return (
@@ -64,10 +64,10 @@ const App: React.FC = () => {
         <div className="inline-block p-3 rounded-full bg-indigo-100 text-indigo-600 mb-4 animate-bounce">
           <i className="fa-solid fa-cat fa-2x"></i>
         </div>
-        <h1 className="text-4xl font-extrabold text-slate-900 mb-2">Кото-Генератор Поздравлений</h1>
+        <h1 className="text-4xl font-extrabold text-slate-900 mb-2">Cat-Powered Wish Genie</h1>
         <p className="text-slate-500 max-w-lg mx-auto">
-          Создайте идеальное поздравление с помощью хвостатого ИИ. 
-          Ваши данные не сохраняются и удаляются при очистке.
+          Create the perfect greeting with the help of a whiskered AI. 
+          Your data is not stored and is deleted upon clearing.
         </p>
       </header>
 
@@ -77,72 +77,72 @@ const App: React.FC = () => {
           <form onSubmit={handleSubmit} className="p-6 md:p-8 space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Input 
-                label="Имя" 
+                label="Name" 
                 name="name" 
                 value={formData.name} 
                 onChange={handleInputChange} 
                 required 
-                placeholder="Как зовут именинника?"
+                placeholder="Birthday person's name"
               />
               <Input 
-                label="Возраст" 
+                label="Age" 
                 name="age" 
                 type="number" 
                 value={formData.age || ''} 
                 onChange={handleInputChange} 
-                placeholder="Например, 25"
+                placeholder="e.g., 25"
               />
               <Input 
-                label="Пол" 
+                label="Gender" 
                 name="gender" 
                 value={formData.gender || ''} 
                 onChange={handleInputChange} 
                 options={GENDER_OPTIONS}
               />
               <Input 
-                label="Знак зодиака" 
+                label="Zodiac Sign" 
                 name="zodiac" 
                 value={formData.zodiac || ''} 
                 onChange={handleInputChange} 
                 options={ZODIAC_SIGNS}
               />
               <Input 
-                label="Индустрия / Работа" 
+                label="Industry / Work" 
                 name="industry" 
                 value={formData.industry || ''} 
                 onChange={handleInputChange} 
-                placeholder="IT, Медицина, Искусство..."
+                placeholder="IT, Medicine, Arts..."
               />
               <Input 
-                label="Хобби" 
+                label="Hobbies" 
                 name="hobbies" 
                 value={formData.hobbies || ''} 
                 onChange={handleInputChange} 
-                placeholder="Футбол, Чтение, Кулинария..."
+                placeholder="Football, Reading, Cooking..."
               />
               <Input 
-                label="Город" 
+                label="City" 
                 name="city" 
                 value={formData.city || ''} 
                 onChange={handleInputChange} 
-                placeholder="Москва, Санкт-Петербург..."
+                placeholder="London, New York..."
               />
               <Input 
-                label="Страна" 
+                label="Country" 
                 name="country" 
                 value={formData.country || ''} 
                 onChange={handleInputChange} 
-                placeholder="Россия, Казахстан..."
+                placeholder="UK, USA, Canada..."
               />
               <Input 
-                label="Религия" 
+                label="Religion" 
                 name="religion" 
                 value={formData.religion || ''} 
                 onChange={handleInputChange} 
-                placeholder="Если это важно..."
+                placeholder="If relevant..."
               />
               <Input 
-                label="Семейный статус" 
+                label="Family Status" 
                 name="familyStatus" 
                 value={formData.familyStatus || ''} 
                 onChange={handleInputChange} 
@@ -162,11 +162,11 @@ const App: React.FC = () => {
               >
                 {status === FormStatus.LOADING ? (
                   <span className="flex items-center justify-center gap-2">
-                    <span className="text-2xl animate-bounce">🐱</span> Хрум-хрум...
+                    <span className="text-2xl animate-bounce">🐱</span> Munch munch...
                   </span>
                 ) : (
                   <span className="flex items-center justify-center gap-2">
-                    <span className="text-2xl">🐈✨</span> Наколдовать!
+                    <span className="text-2xl">🐈✨</span> Cast Magic!
                   </span>
                 )}
               </button>
@@ -176,7 +176,7 @@ const App: React.FC = () => {
                 className="py-4 px-6 rounded-2xl font-bold text-slate-600 bg-slate-100 hover:bg-slate-200 transition-all shadow-sm active:scale-95 text-lg"
               >
                 <span className="flex items-center justify-center gap-2">
-                  <span className="text-2xl">🙀🧹</span> Стереть всё
+                  <span className="text-2xl">🙀🧹</span> Clear Everything
                 </span>
               </button>
             </div>
@@ -190,13 +190,13 @@ const App: React.FC = () => {
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
                   <span className="text-2xl">😻</span>
-                  Результат
+                  Result
                 </h2>
                 <button 
                   onClick={copyToClipboard}
                   className="bg-indigo-50 hover:bg-indigo-100 px-4 py-2 rounded-xl text-indigo-600 text-sm font-bold flex items-center gap-2 transition-all active:scale-95"
                 >
-                  <span className="text-xl">🐾</span> Забрать в лапки
+                  <span className="text-xl">🐾</span> Take in paws
                 </button>
               </div>
               <div className="prose prose-indigo max-w-none text-slate-700 whitespace-pre-wrap leading-relaxed">
@@ -204,13 +204,13 @@ const App: React.FC = () => {
               </div>
               <div className="mt-8 pt-6 border-t border-slate-100 flex items-center justify-center gap-4 text-xs text-slate-400 italic">
                 <span className="text-lg">😸</span>
-                Ваши секреты под надежной защитой
+                Your secrets are guarded by the tail
               </div>
             </div>
           ) : status === FormStatus.LOADING ? (
             <div className="bg-white rounded-2xl border border-dashed border-indigo-200 p-12 flex flex-col items-center justify-center text-center space-y-4">
               <div className="text-6xl animate-bounce">🐈‍⬛</div>
-              <p className="text-slate-500 font-medium italic">Кот усиленно думает над текстом...</p>
+              <p className="text-slate-500 font-medium italic">Cat is thinking hard about the text...</p>
             </div>
           ) : error ? (
             <div className="bg-red-50 rounded-2xl border border-red-100 p-8 text-center space-y-4">
@@ -220,15 +220,15 @@ const App: React.FC = () => {
                 onClick={handleSubmit}
                 className="bg-white px-6 py-2 rounded-xl shadow-sm border border-red-200 text-red-600 font-bold hover:bg-red-100 transition-all flex items-center gap-2 mx-auto active:scale-95"
               >
-                <span className="text-xl">🔄</span> Попробовать ещё
+                <span className="text-xl">🔄</span> Try Again
               </button>
             </div>
           ) : (
             <div className="bg-slate-50 rounded-2xl border-2 border-dashed border-slate-200 p-12 flex flex-col items-center justify-center text-center space-y-4">
               <div className="text-6xl grayscale opacity-30">🐈</div>
               <div className="space-y-1">
-                <p className="text-slate-500 font-semibold">Жду ваших указаний!</p>
-                <p className="text-slate-400 text-sm">Заполните данные слева, чтобы я начал мурчать поздравление.</p>
+                <p className="text-slate-500 font-semibold">Waiting for your orders!</p>
+                <p className="text-slate-400 text-sm">Fill in the details on the left, and I'll start purring the greeting.</p>
               </div>
             </div>
           )}
@@ -236,9 +236,9 @@ const App: React.FC = () => {
       </div>
 
       <footer className="mt-20 pt-8 border-t border-slate-200 text-center text-slate-400 text-sm flex flex-col items-center gap-2">
-        <p>&copy; {new Date().getFullYear()} Кото-Поздравления. Мяу!</p>
+        <p>&copy; {new Date().getFullYear()} Cat Greetings. Meow!</p>
         <p className="flex items-center gap-1">
-          <span className="text-lg">😺</span> Конфиденциальность гарантирована хвостом
+          <span className="text-lg">😺</span> Privacy guaranteed by the whiskered one
         </p>
       </footer>
     </div>
